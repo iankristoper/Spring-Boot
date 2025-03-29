@@ -18,7 +18,7 @@ public class IntroApplication {
 
         //create the application context container -> will handle beans and load all the beans 
         ApplicationContext context = SpringApplication.run(IntroApplication.class, args);
-        System.out.println("Application context loaded......");
+        System.out.println("Application context loaded......this was loaded after all the class under context hs been loaded resulting to become a spring bean");
         
         //retrieving the beans from the context container
         //Car car = context.getBean(Car.class);
@@ -33,7 +33,7 @@ public class IntroApplication {
         public Car(Engine engine) {
             this.engine = engine;
             System.out.println("Car has been created...by the context container");
-            System.out.println("The constructor has been initialized with dependency injection");
+            System.out.println("The constructor has been initialized with dependency injection -> Engine has been injected into the Car class");
         }
         
         public void start() {
