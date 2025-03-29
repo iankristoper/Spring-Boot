@@ -1,2 +1,2 @@
 # Spring-Boot
-This is simple sample of spring boot code
+This is simple sample of spring boot code 
