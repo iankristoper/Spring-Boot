@@ -8,10 +8,10 @@
 		<version>3.2.2</version>
 		<relativePath/> <!-- lookup parent from repository -->
 	</parent>
-	<groupId>com.testing</groupId>
-	<artifactId>aop</artifactId>
+	<groupId>com.practice</groupId>
+	<artifactId>aoplog</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
-	<name>aop</name>
+	<name>aoplog</name>
 	<description>Demo project for Spring Boot</description>
 	<url/>
 	<licenses>
@@ -52,26 +52,13 @@
                     <artifactId>jakarta.annotation-api</artifactId>
                     <version>3.0.0</version>
                 </dependency>
-                
-                                          
-                <!-- https://mvnrepository.com/artifact/org.springframework.boot/spring-boot-starter-aop -->
                 <dependency>
-                    <groupId>org.springframework.boot</groupId>
-                    <artifactId>spring-boot-starter-aop</artifactId>
-                </dependency>
-                <!-- https://mvnrepository.com/artifact/org.aspectj/aspectjweaver -->
-                <dependency>
-                    <groupId>org.aspectj</groupId>
-                    <artifactId>aspectjweaver</artifactId>
-                    <scope>runtime</scope>
-                </dependency>
-                <dependency>
-                 <groupId>org.aspectj</groupId>
+                 <groupId>aspectj</groupId>
                  <artifactId>aspectjrt</artifactId>
-                 <version>1.9.23</version>
+                 <version>1.5.3</version>
                  <type>jar</type>
                 </dependency>
-	</dependencies>
+               </dependencies>
 
 	<build>
 		<plugins>

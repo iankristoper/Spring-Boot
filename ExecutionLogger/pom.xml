@@ -8,7 +8,7 @@
 		<version>3.2.2</version>
 		<relativePath/> <!-- lookup parent from repository -->
 	</parent>
-	<groupId>com.testing</groupId>
+	<groupId>com.practice</groupId>
 	<artifactId>aop</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
 	<name>aop</name>
@@ -34,6 +34,10 @@
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter-web</artifactId>
 		</dependency>
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter-web-services</artifactId>
+		</dependency>
 
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
@@ -46,25 +50,13 @@
 			<artifactId>spring-boot-starter-test</artifactId>
 			<scope>test</scope>
 		</dependency>
-                <!-- https://mvnrepository.com/artifact/jakarta.annotation/jakarta.annotation-api -->
-                <dependency>
-                    <groupId>jakarta.annotation</groupId>
-                    <artifactId>jakarta.annotation-api</artifactId>
-                    <version>3.0.0</version>
-                </dependency>
                 
-                                          
+                                                                                
                 <!-- https://mvnrepository.com/artifact/org.springframework.boot/spring-boot-starter-aop -->
                 <dependency>
                     <groupId>org.springframework.boot</groupId>
                     <artifactId>spring-boot-starter-aop</artifactId>
-                </dependency>
-                <!-- https://mvnrepository.com/artifact/org.aspectj/aspectjweaver -->
-                <dependency>
-                    <groupId>org.aspectj</groupId>
-                    <artifactId>aspectjweaver</artifactId>
-                    <scope>runtime</scope>
-                </dependency>
+                </dependency>          
                 <dependency>
                  <groupId>org.aspectj</groupId>
                  <artifactId>aspectjrt</artifactId>

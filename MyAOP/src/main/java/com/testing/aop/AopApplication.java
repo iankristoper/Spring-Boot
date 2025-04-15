@@ -26,6 +26,7 @@ public class AopApplication {
         // Retrieve the service bean and call its method
         MyService myService = context.getBean(MyService.class);
         myService.doSomething();
+        myService.doSomething();
     }
 }
 
@@ -46,7 +47,7 @@ class LoggingAspect {
     public void logBeforeMethod() {
         System.out.println("AOP Logging: Before main method");
     }
-    
+  
     //Log after method execution
     @After("execution(* MyService.*(..))")
     public void logAfterMethod() {
