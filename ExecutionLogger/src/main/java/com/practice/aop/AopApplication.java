@@ -14,6 +14,7 @@ import org.aspectj.lang.annotation.Aspect;
 import org.aspectj.lang.annotation.Before;
 import org.aspectj.lang.annotation.After;
 import org.aspectj.lang.annotation.Around;
+import org.aspectj.lang.ProceedingJoinPoint;
 
 
 
@@ -28,6 +29,7 @@ public class AopApplication {
         
         MyService service = context.getBean(MyService.class);
         service.doTask();
+        System.out.println("");
         System.out.println("This is the between method");
         System.out.println("");
         service.doTask();
@@ -45,18 +47,12 @@ class MyService {
 @Component
 //aspect class this is where the aop is happening 
 class LoggingAspect {
-    @Before("execution(* com.practice.aop.MyService.doTask(..))")
-    public void logBefore() {
-        System.out.println("[Before] doTask() is being called");
-    }
-    
-    @After("execution(* com.practice.aop.MyService.doTask(..))")
-    public void logAfter() {
-        System.out.println("[After] doTask() has been executed");
-    }
-    
-    @Around("execution(* com.practice.aop.MyService.doTask(..))")
-    public void logAround() {
-        System.out.println("[Around] THIS WILL RUN BEFORE AND AFTER");
+    @Around("execution(* com.practice.aop.MyService.doTask(..))") 
+    public Object logAround(ProceedingJoinPoint joinPoint) throws Throwable {
+        System.out.println("👀 Before the method");
+        Object result = joinPoint.proceed();
+        System.out.println("✅ After the method");
+        
+        return result;
     }
 }
