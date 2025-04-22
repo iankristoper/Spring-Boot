@@ -36,7 +36,7 @@ public class BankloggingApplication {
         service.transfer("James", "Sarah", 300);
     }
 }
-
+//each use of object methods - aop is also called 
 
 
 
