@@ -3,15 +3,16 @@ package org.practice.jdbc_test1;
 
 
 
-
-
-
 //this class will contain the data on it for the database
 public class User {
     
     private int id;
     private String name;
     private String email;
+    
+    public User() {
+        
+    }
     
     public User(int id, String name, String email) {
         this.id = id;
