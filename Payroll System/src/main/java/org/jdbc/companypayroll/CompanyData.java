@@ -13,7 +13,7 @@ public class CompanyData {
     
     //null constructor
     public CompanyData() {
-        
+            
     }
     
     //constructor for data initialization

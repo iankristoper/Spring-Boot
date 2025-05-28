@@ -31,9 +31,9 @@ public class DataRepository {
     }
     
     //READ -> by ID
-    public void readDataById(int id) {
+    public CompanyData readDataById(int id) {
         String sql = "SELECT * FROM companydata WHERE id=?";
-        jdbc.update(sql, new BeanPropertyRowMapper<>(CompanyData.class), id);
+        return jdbc.queryForObject(sql, new BeanPropertyRowMapper<>(CompanyData.class), id);
     }
     
     //READ -> All data
@@ -44,6 +44,25 @@ public class DataRepository {
     
     //UPDATE
     public void updateData(CompanyData companyData) {
-        String sql = 
+        String sql = "UPDATE companydata SET name=?, position=?, salary=? WHERE id=?";
+        int result = jdbc.update(sql, companyData.getName(), companyData.getPosition(), companyData.getSalary(), companyData.getId());
+        
+        if(result > 0) {
+            System.out.println("Data updated");
+        } else {
+            System.out.println("No matches in the ID");
+        }
+    }
+    
+    //DELETE
+    public void deleteData(int id) {
+        String sql = "DELETE FROM companydata WHERE id=?";
+        int result = jdbc.update(sql, id);
+        
+        if(result > 0) {
+            System.out.println("Data deleted from (ID): " + id);
+        } else {
+            System.out.println("No data matches on ID: " + id);
+        }
     }
 }
