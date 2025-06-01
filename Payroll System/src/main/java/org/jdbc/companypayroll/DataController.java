@@ -39,7 +39,7 @@ public class DataController {
     }
     
     //UPDATE -> PUT
-    @PutMapping
+    @PutMapping("/{id}")
     public String updateData(@PathVariable int id, @RequestBody CompanyData companydata) {
         companydata.setId(id);
         repo.updateData(companydata);
@@ -51,8 +51,5 @@ public class DataController {
     public String deleteData(@PathVariable int id) {
         repo.deleteData(id);
         return "Data deleted";
-    }
-    
-    
-    
+    } 
 }
