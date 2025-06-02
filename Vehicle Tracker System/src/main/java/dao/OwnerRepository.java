@@ -20,6 +20,8 @@ import java.util.List;
 //lets inject the NamedParameterJdbcTemplate on this class
 
 
+
+
 @Repository 
 public class OwnerRepository {
     
@@ -45,8 +47,8 @@ public class OwnerRepository {
     
     
     //read by id
-    public Owner readById() {
-        String sql = "SELECT FROM owner WHERE id=?";
+    public Owner readById(int id) {
+        String sql = "SELECT FROM owner WHERE ownerId=?";
         return jdbc.queryForObject(sql, new BeanPropertyRowMapper<>(Owner.class));
     }
     
@@ -56,7 +58,7 @@ public class OwnerRepository {
     
     //delete
     public String deleteOwner(int ownerId) {
-        String sql = "DELETE FROM owner WHERE id=?";
+        String sql = "DELETE FROM owner WHERE ownerId=?";
         int result = jdbc.update(sql, ownerId);
         
         if(result > 0) {
@@ -64,6 +66,5 @@ public class OwnerRepository {
         } else {
             return "ID does not match any Owner data";
         }
-    }
-    
+    }   
 }

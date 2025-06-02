@@ -9,7 +9,7 @@ package model;
 
 public class Owner {
     
-    private int id;
+    private int ownerId;
     private String name;
     private String email;
     
@@ -18,19 +18,19 @@ public class Owner {
         
     }
     
-    public Owner(int id, String name, String email) {
-        this.id = id;
+    public Owner(int ownerId, String name, String email) {
+        this.ownerId = ownerId;
         this.name = name;
         this.email = email;
     }
     
     //getters and setters 
-    public void setId(int id) {
-        this.id = id;
+    public void setId(int ownerId) {
+        this.ownerId = ownerId;
     }
     
     public int getId() {
-        return id;
+        return ownerId;
     }
     
     public void setName(String name) {

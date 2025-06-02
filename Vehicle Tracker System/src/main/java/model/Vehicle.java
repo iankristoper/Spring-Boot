@@ -6,7 +6,7 @@ package model;
  * @author noob
  */
 
-
+    
 public class Vehicle {
     
     private int ownerId;
@@ -25,6 +25,7 @@ public class Vehicle {
         this.vehicleId = vehicleId;
         this.vehicleModel = vehicleModel;
         this.vehiclePlate = vehiclePlate;
+        this.vehicleYear = vehicleYear;
     }
     
     //getters and setters 
