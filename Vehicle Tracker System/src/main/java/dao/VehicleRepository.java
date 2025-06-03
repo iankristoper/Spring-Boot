@@ -8,6 +8,7 @@ package dao;
 
 
 import model.Vehicle;
+import model.Owner;
 
 import org.springframework.stereotype.Repository;
 
@@ -47,9 +48,9 @@ public class VehicleRepository {
     
     
     //read by id
-    public Vehicle readById(int vehicleId) {
-        String sql = "SELECT FROM vehicle WHERE vehicleId=?";
-        return jdbc.queryForObject(sql, new BeanPropertyRowMapper<>(Vehicle.class));
+    public List<Vehicle> readById(int ownerId) {
+        String sql = "SELECT FROM vehicle WHERE ownerId=?";
+        return (List<Vehicle>) jdbc.queryForObject(sql, new BeanPropertyRowMapper<>(Vehicle.class), ownerId);
     }
     
     
