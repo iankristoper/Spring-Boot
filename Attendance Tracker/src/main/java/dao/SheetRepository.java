@@ -38,9 +38,9 @@ public class SheetRepository {
     
     
     //read -> by id 
-    public Sheet getSheetId(int id) {
+    public List<Sheet> getSheetId(int id) {
         String sql = "SELECT * FROM attendance WHERE id=?";
-        return jdbc.queryForObject(sql, new BeanPropertyRowMapper<>(Sheet.class), id);
+        return (List) jdbc.queryForObject(sql, new BeanPropertyRowMapper<>(Sheet.class), id);
     }
     
     

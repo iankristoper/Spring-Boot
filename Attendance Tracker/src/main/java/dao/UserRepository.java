@@ -33,7 +33,7 @@ public class UserRepository {
     
     //create -> insert data in the database
     public int createUser(User user) {
-        String sql = "INSERT INTO employee(name) VALUES=?";
+        String sql = "INSERT INTO employee(name) VALUES=(?)";
         return jdbc.update(sql, user.getName());
     }
     

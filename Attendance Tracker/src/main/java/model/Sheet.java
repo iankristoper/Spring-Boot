@@ -5,8 +5,6 @@ package model;
  *
  * @author noob
  */
-
-
 import java.time.LocalDate;
 
 
@@ -65,3 +63,5 @@ public class Sheet {
         return status;
     }
 }
+
+

@@ -32,7 +32,7 @@ public class SheetController {
     
     //create -> POST create data
     @PostMapping
-    public ResponseEntity<String> createSheet(Sheet sheet) {
+    public ResponseEntity<String> createSheet(@RequestBody Sheet sheet) {
         sheetRepo.createSheet(sheet);
         return ResponseEntity.ok("Attendance added successfully");
     } 
