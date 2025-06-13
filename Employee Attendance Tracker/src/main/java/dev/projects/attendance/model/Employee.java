@@ -1,12 +1,10 @@
 
-package model;
+package dev.projects.attendance.model;
 
 /**
  *
  * @author Ian Tagano
  */
-
-
 
 
 
