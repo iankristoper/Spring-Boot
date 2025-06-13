@@ -14,6 +14,8 @@ import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.stereotype.Repository;
 import org.springframework.jdbc.core.BeanPropertyRowMapper;
 
+import java.util.List;
+
 
 
 @Repository
@@ -36,10 +38,24 @@ public class EmployeeRepository {
     }
     
     
-    //read
+    //read by id
     public Employee readById(int id) {
         String sql = "SELECT * FROM employee WHERE id=?";
         return jdbc.queryForObject(sql, new BeanPropertyRowMapper<>(Employee.class), id);
+    }
+    
+    
+    //read by all
+    public List<Employee> readAll() {
+        String sql = "SELECT * FROM employee";
+        return jdbc.query(sql, new BeanPropertyRowMapper<>(Employee.class));
+    }
+    
+    
+    //delete 
+    public void deleteEmployee(int id) {
+        String sql = "DELETE FROM employee WHERE id = ?";
+        jdbc.update(sql, id);
     }
 }
 

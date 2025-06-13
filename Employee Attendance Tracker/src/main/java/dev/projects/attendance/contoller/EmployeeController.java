@@ -14,6 +14,8 @@ import org.springframework.web.bind.annotation.*;
 
 import org.springframework.http.ResponseEntity;
 
+import java.util.List;
+
 
 
 
@@ -42,9 +44,26 @@ public class EmployeeController {
     }
     
     
-    //for test
+    @GetMapping
+    public ResponseEntity<List<Employee>> readAllEmployee() {
+        List<Employee> employee = employeeRepo.readAll();
+        return ResponseEntity.ok(employee);
+    }
+    
+    
+    @DeleteMapping("/{id}")
+    public ResponseEntity<String> deleteEmployee(@PathVariable int id) {
+        employeeRepo.deleteEmployee(id);
+        return ResponseEntity.ok("Employee deleted successfully");
+    }
+       
+    
+    /**for test**\
+    
     @GetMapping
     public String hello() {
         return "This is test";
     }
+    
+    */
 }
