@@ -47,4 +47,46 @@ public class AttendanceRepository {
         String sql = "SELECT * FROM sheet";
         return jdbc.query(sql, new BeanPropertyRowMapper<>(AttendanceSheet.class));
     }
+    
+    
+    //delete
+    public void deleteAttendance(int id) {
+        String sql = "DELETE FROM sheet WHERE id = ?";
+        jdbc.update(sql, id);
+    }
+    
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

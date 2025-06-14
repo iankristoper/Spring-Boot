@@ -36,7 +36,7 @@ public class AttendanceController {
     @PostMapping
     public ResponseEntity<String> createAttendance(@RequestBody AttendanceSheet attendanceSheet) {
         attendanceRepo.createAttendance(attendanceSheet);
-        return ResponseEntity.ok("Sheet added recorded");
+        return ResponseEntity.ok("Sheet recorded successfully");
     }
     
     
@@ -54,4 +54,37 @@ public class AttendanceController {
         List<AttendanceSheet> attendanceSheet = attendanceRepo.readAll();
         return ResponseEntity.ok(attendanceSheet);
     }
+    
+    
+    //delete attendance sheet
+    @DeleteMapping("/{id}")
+    public ResponseEntity<String> deleteSheet(@PathVariable int id) {
+        attendanceRepo.deleteAttendance(id);
+        return ResponseEntity.ok("Sheet deleted successfully");
+    }
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
