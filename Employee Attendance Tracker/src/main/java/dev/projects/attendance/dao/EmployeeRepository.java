@@ -10,9 +10,13 @@ package dev.projects.attendance.dao;
 
 import dev.projects.attendance.model.Employee;
 
+import java.sql.ResultSet;
+import java.sql.SQLException;
+
 import org.springframework.jdbc.core.JdbcTemplate;
+import org.springframework.jdbc.core.RowMapper;
+
 import org.springframework.stereotype.Repository;
-import org.springframework.jdbc.core.BeanPropertyRowMapper;
 
 import java.util.List;
 
@@ -29,6 +33,20 @@ public class EmployeeRepository {
         this.jdbc = jdbc;
     }
     
+    
+    //using of rowmapper 
+    public class EmployeeRowMapper implements RowMapper<Employee> {
+        
+        @Override
+        public Employee mapRow(ResultSet rs, int rowNum) throws SQLException {
+            Employee emp = new Employee();
+            emp.setId(rs.getInt("id"));
+            emp.setName(rs.getString("name"));
+            return emp;
+        }
+    }
+    
+    
     //crud operation
     
     //create
@@ -41,14 +59,14 @@ public class EmployeeRepository {
     //read by id
     public Employee readById(int id) {
         String sql = "SELECT * FROM employee WHERE id=?";
-        return jdbc.queryForObject(sql, new BeanPropertyRowMapper<>(Employee.class), id);
+        return jdbc.queryForObject(sql, new EmployeeRowMapper(), id);
     }
     
     
     //read by all
     public List<Employee> readAll() {
         String sql = "SELECT * FROM employee";
-        return jdbc.query(sql, new BeanPropertyRowMapper<>(Employee.class));
+        return jdbc.query(sql, new EmployeeRowMapper());
     }
     
     

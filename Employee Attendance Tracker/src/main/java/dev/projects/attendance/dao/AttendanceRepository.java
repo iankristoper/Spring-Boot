@@ -8,12 +8,19 @@ package dev.projects.attendance.dao;
 
 
 import dev.projects.attendance.model.AttendanceSheet;
+import dev.projects.attendance.model.Employee;
+import java.sql.ResultSet;
+import java.sql.SQLException;
 
 import org.springframework.stereotype.Repository;
+
+
+
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.jdbc.core.BeanPropertyRowMapper;
 
 import java.util.List;
+import org.springframework.jdbc.core.RowMapper;
 
 
 @Repository
@@ -25,6 +32,21 @@ public class AttendanceRepository {
     public AttendanceRepository(JdbcTemplate jdbc) {
         this.jdbc = jdbc;
     }
+    
+    
+    //using rowmapper 
+    public class SheetRowMapper implements RowMapper<AttendanceSheet> {
+        
+        @Override
+        public Employee mapRow(ResultSet rs, int rowNum) throws SQLException {
+            AttendanceSheet sheetRow = new AttendanceSheet();
+            sheetRow.setId(rs.getInt("id"));
+            sheetRow.setEmployeeId(rs.getInt("employeeId"));
+            sheetRow.setDate(rs.getDate(""));
+            sheetRow.setStatus(rs.);
+        }
+    }
+    
     
     
     //create 
