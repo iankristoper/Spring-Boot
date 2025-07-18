@@ -1,3 +1,4 @@
 # Spring-Boot
-This is simple sample of spring boot code 
+This is for practice only
+
  
