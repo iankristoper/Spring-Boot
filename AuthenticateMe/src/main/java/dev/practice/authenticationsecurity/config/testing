@@ -1,0 +1,21 @@
+public interface RowMapper<T>
+
+T mapRow(ResultSet rs, int rowNum)
+
+
+RowMapper<UserDetails> rowMapper = new RowMapper<UserDetails>() {
+    
+    @Override 
+    public UserDetails mapRow(ResultSet rs, int rowNum) throw SQLException {
+
+        //get values from the row 
+        String username = rs.getString("username");
+        String password = rs.getString("password");
+        String role = rs.getString("role");
+        
+
+        //return the mapped object
+        return User.withUsername(username).password(password).role(role).build();
+    
+    }
+}
