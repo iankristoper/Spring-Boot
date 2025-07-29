@@ -38,6 +38,8 @@ public class MyUserDetailsService implements UserDetailsService {
         
         try {
             
+            
+            
             //find the admin in the table 
             String sql = "SELECT * FROM admins WHERE username = ?";
             
@@ -45,6 +47,11 @@ public class MyUserDetailsService implements UserDetailsService {
                 String dbUsername = rs.getString("username");
                 String dbPassword = rs.getString("password");
                 String dbRole = rs.getString("role");
+                
+                System.out.println("FROM DB → username: " + dbUsername + ", role: " + dbRole);
+
+                System.out.println("Loading user: " + username);
+
                 
                 return User.withUsername(dbUsername)
                         .password(dbPassword)
@@ -65,6 +72,10 @@ public class MyUserDetailsService implements UserDetailsService {
                     String dbUsername = rs.getString("username");
                     String dbPassword = rs.getString("password");
                     String dbRole = rs.getString("role");
+                    
+                    System.out.println("FROM DB → username: " + dbUsername + ", role: " + dbRole);
+
+                    System.out.println("Loading user: " + username);
                     
                     return User.withUsername(dbUsername)
                             .password(dbPassword)
