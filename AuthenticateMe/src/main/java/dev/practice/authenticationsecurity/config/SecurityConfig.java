@@ -36,7 +36,7 @@ public class SecurityConfig {
     public SecurityFilterChain securityFilterChain(HttpSecurity http) throws Exception {
         
         http
-                .csrf(csrf -> csrf.disable())  //disable for testing purposes
+                //.csrf(csrf -> csrf.disable())  //disable for testing purposes
                 .authorizeHttpRequests(auth -> auth 
                         .requestMatchers("/auth/**").permitAll()
                         .requestMatchers("/user/**").hasRole("USER")
@@ -46,7 +46,7 @@ public class SecurityConfig {
                 )
                 
                 .formLogin(form -> form
-                .defaultSuccessUrl("/hi", true) //redirect here after login
+                .defaultSuccessUrl("/success/index", true) //redirect here after login
                 .permitAll())  
                 
                 .logout(Customizer.withDefaults());
