@@ -27,6 +27,8 @@ public class SecurityConfig {
     
     private final MyUserDetailsService myUserDetailsService;
     
+    
+    //you can change this to simpler which is @autowired 
     public SecurityConfig(MyUserDetailsService myUserDetailsService) {
         this.myUserDetailsService = myUserDetailsService;
     }
@@ -46,8 +48,9 @@ public class SecurityConfig {
                 )
                 
                 .formLogin(form -> form
-                .defaultSuccessUrl("/success/index", true) //redirect here after login
-                .permitAll())  
+                        .defaultSuccessUrl("/success/index", true) //redirect after login
+                        .permitAll()
+                )  
                 
                 .logout(Customizer.withDefaults());
                         
@@ -66,9 +69,7 @@ public class SecurityConfig {
         builder
                 .userDetailsService(myUserDetailsService)
                 .passwordEncoder(passwordEncoder());
-        
-        
-        
+              
         return builder.build();
     }
     
